@@ -1,0 +1,19 @@
+<div align="center">
+<hr width=400><h3><{$system_title}></h3>
+<{if $system_message}>
+	<font color="red"><{$system_message}></font>
+<{/if}>
+<p>
+<hr width=400>
+<p>
+<{if $form_action}>
+<form action="<{$form_action}>" method="post">
+<input type="hidden" name="bbs_id" value="<{$form_bbs_id}>">
+<input type="submit" value="<{$lang_goback}>">
+</form>
+<{else}>
+<form>
+<input type=button value="<{$lang_goback}>" onClick="history.back()">
+</form>
+<{/if}>
+</div>

@@ -1,0 +1,75 @@
+<div align="center">
+<b style='color:#008080; font-size:24px;'><{$bbs_title}></b>
+<hr width="90%">
+[<a href="../../index.php" target="_top"><{$smarty.const._MD_YYBBS_GO_TOP}></a>]
+[<a href="./index.php?bbs_id=<{$bbs_id}>"><{$smarty.const._MD_YYBBS_BBS_TOP}></a>]
+[<a href="./howto.php"><{$smarty.const._MD_YYBBS_HOWTO}></a>]
+[<a href="<{$smarty.const.XOOPS_URL}>/search.php"><{$smarty.const._MD_YYBBS_SEARCH}></a>]
+<hr width="90%"></div>
+<blockquote>
+<{include file="db:yybbs_form.html"}>
+</blockquote>
+<div align='center'>
+<{foreach name=parent item=i from=$messages}>
+<TABLE BORDER=1 class="odd" style='width: 90%; text-align:left' CELLSPACING=0 CELLPADDING=2><TR><TD>
+<{include file="db:yybbs_item.html" item=$i}>
+<{foreach item=r from=$i.res}>
+<hr noshade size=1 width='85%'>
+<{include file="db:yybbs_item.html" item=$r}>
+<{/foreach}>
+</TD></TR></TABLE><br><br>
+<{/foreach}>
+</div>
+
+<{if $page_max>1}>
+	<div align="left">
+	<blockquote>
+
+	<table style="width: auto;"><tr>
+	<{if $prev_page}>
+	<td valign=top><form action="<{$script_name}>" method="post">
+	<input type=hidden name=bbs_id value="<{$bbs_id}>">
+	<input type=hidden name=page value="<{$prev_page}>">
+	<input type=submit value='Prev' style="background-color: #F7FAFD; color:#000000; font-family:Verdana,Helvetica,Arial;"></td></form>
+	<{/if}>
+	<{if $next_page}>
+	<td valign=top><form action="<{$script_name}>" method="post">
+	<input type=hidden name=bbs_id value="<{$bbs_id}>">
+	<input type=hidden name=page value="<{$next_page}>">
+	<input type=submit value='Next' style="background-color: #F7FAFD; color:#000000; font-family:Verdana,Helvetica,Arial;"></td></form>
+	<{/if}>
+
+	<td width=7></td><td valign=top>
+	<table border=0 style="width: auto;"><tr>
+	<td style="font-family:Verdana,Helvetica,Arial;" align=center valign=top>|</td>
+	<{foreach item=i from=$pages}>
+		<{if $now_page==$i}>
+			<td align=center valign=top sytle="font-family:Verdana,Helvetica,Arial;" width=15><b style='color:red'><{$i}></b></td><td sytle="font-family:Verdana,Helvetica,Arial;" align=center valign=top>|</td>
+		<{else}>
+			<td align=center valign=top sytle="font-family:Verdana,Helvetica,Arial;" width=15><a href="<{$script_name}>?page=<{$i}>&bbs_id=<{$bbs_id}>"><{$i}></a></td><td sytle="font-family:Verdana,Helvetica,Arial;" align=center valign=top>|</td>
+		<{/if}>
+	<{/foreach}>
+</tr></table>
+</td>
+</tr></table>
+</blockquote>
+</div>
+<{/if}>
+<div align="center">
+<form action="./revi.php" method="POST">
+<input type="hidden" name="bbs_id" value="<{$bbs_id}>">
+<select name=mode style="background-color: #F7FAFD; color:#000000;">
+<option value=edit><{$smarty.const._MD_YYBBS_REVICE}></option>
+<option value=dele><{$smarty.const._MD_YYBBS_DELETE}></option>
+</select>
+<span sytle="font-family:Verdana,Helvetica,Arial;">
+NO:<input type=text name=no size=3 style="f">
+PASS:<input type=password name=passwd size=6 maxlength=8 style="background-color: #F7FAFD; color:#000000;">
+</span>
+<input type=submit value="<{$smarty.const._MD_YYBBS_SEND}>" style="background-color: #F7FAFD; color:#000000;"></form>
+<p>
+<span style="font-size:10px; font-family:Verdana,Helvetica,Arial">
+<{$smarty.const._MD_YYBBS_SIG}><br>
+<{$smarty.const._MD_YYBBS_SIG_LINK}>
+</span>
+</div>

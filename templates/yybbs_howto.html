@@ -1,0 +1,15 @@
+<table width="90%" border=1 cellpadding=10>
+<tr><td bgcolor="#FFFFFF">
+<h3><{$lang_howto}></h3>
+<ol>
+<{foreach item=i from=$howto}>
+<li><{$i}>
+<{/foreach}>
+</ol>
+</td></tr></table>
+<p>
+<div align='center'>
+<form>
+<input type=button value="<{$lang_goback}>" onClick="history.back()">
+</form>
+</div>

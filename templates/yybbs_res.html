@@ -1,0 +1,28 @@
+<form>
+<input type=button value="<{$smarty.const._MD_YYBBS_GO_BACK}>" onClick="history.back()">
+</form>
+
+
+<{$head_message}>
+<HR>
+<font color="#006600"><b><{$title}></b></font>
+			<{$smarty.const._MD_YYBBS_POSTER}>:<b><{$name}></b> <{$smarty.const._MD_YYBBS_POSTDATE}>:<{$date}>
+			<font color="#006600"><{$serial}></font><br>
+			<blockquote><{$message}></blockquote><HR>
+<{foreach item=r from=$res}>
+&nbsp;&nbsp;<font color="#006600"><b><{$r.title}></b></font>
+			<{$smarty.const._MD_YYBBS_POSTER}>:<b><{$r.name}></b> <{$smarty.const._MD_YYBBS_POSTDATE}>:<{$r.date}>
+			<font color="#006600"><{$r.serial}></font><br>
+			<blockquote><{$r.message}></blockquote><HR>
+<{/foreach}>
+<a name="RES"></a>
+<blockquote>
+<{include file="db:yybbs_form.html"}>
+</blockquote>
+<p>
+<div align='center'>
+<span style="font-size:10px; font-family:Verdana,Helvetica,Arial">
+<{$smarty.const._MD_YYBBS_SIG}><br>
+<{$smarty.const._MD_YYBBS_SIG_LINK}>
+</span>
+</div>

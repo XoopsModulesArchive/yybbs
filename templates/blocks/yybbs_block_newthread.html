@@ -1,0 +1,38 @@
+<table class="outer" cellspacing="1">
+
+  <{if $block.fullmode === true}>
+  <tr>
+    <th><{$smarty.const._MB_YYBBS_BBS}></th>
+    <th><{$smarty.const._MB_YYBBS_THREAD}></th>
+    <th align='right'><{$smarty.const._MB_YYBBS_LASTPOST}></th>
+  </tr>
+
+  <{foreach item=m from=$block.messages}>
+  <tr class="<{cycle values="even,odd"}>">
+    <td><a href="<{$xoops_url}>/modules/yybbs/index.php?bbs_id=<{$m.bbs_id}>"><{$m.bbs_title}></a></td>
+    <td><a href="<{$xoops_url}>/modules/yybbs/index.php?bbs_id=<{$m.bbs_id}>&amp;page=<{$m.page}>#<{$m.id}>"><{$m.title}></td>
+    <td align="right"><{$m.update_date}><br><{$m.name}></td>
+  </tr>
+  <{/foreach}>
+
+  <{else}>
+
+  <tr>
+    <td class="head"><{$smarty.const._MB_YYBBS_THREAD}></td>
+    <td class="head" align="right"><{$smarty.const._MB_YYBBS_LASTPOST}></td>
+  </tr>
+
+  <{foreach item=m from=$block.messages}>
+  <tr class="<{cycle values="even,odd"}>">
+    <td><a href="<{$xoops_url}>/modules/yybbs/index.php?bbs_id=<{$m.bbs_id}>&amp;page=<{$m.page}>#<{$m.id}>"><{$m.title}></td>
+    <td align="right"><{$m.update_date}><br><{$m.name}></td>
+  </tr>
+  <{/foreach}>
+
+  <{/if}>
+
+</table>
+
+<div style="text-align:right; padding: 5px;">
+<a href="<{$xoops_url}>/modules/yybbs/"><{$smarty.const._MB_YYBBS_GOBBS}></a>
+</div>

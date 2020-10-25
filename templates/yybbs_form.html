@@ -1,0 +1,54 @@
+<form method="POST" action="<{$form_action}>">
+<input type=hidden name=mode value="<{$form_mode}>">
+<input type=hidden name=parent value="<{$form_parent}>">
+<input type=hidden name=bbs_id value="<{$form_bbs_id}>">
+<table border=0 cellspacing=0>
+<tr>
+  <td nowrap><b><{$smarty.const._MD_YYBBS_NAME}></b></td>
+  <td><input type=text name=name size=28 value="<{$form_name}>"  style="background-color: #F7FAFD; color:#000000;"></td>
+</tr>
+<tr>
+  <td nowrap><b><{$smarty.const._MD_YYBBS_EMAIL}></b></td>
+  <td><input type=text name=email size=28 value="<{$form_email}>"  style="background-color: #F7FAFD; color:#000000;"></td>
+</tr>
+<tr>
+  <td nowrap><b><{$smarty.const._MD_YYBBS_TITLE}></b></td>
+  <td nowrap>
+    <input type=text name=title size=36 value="<{$form_title}>"  style="background-color: #F7FAFD; color:#000000;">
+<input type=submit value="<{$smarty.const._MD_YYBBS_SUBMIT}>"><input type=reset value="<{$smarty.const._MD_YYBBS_RESET}>">
+  </td>
+</tr>
+<tr>
+  <td colspan=2>
+    <b><{$smarty.const._MD_YYBBS_MESSAGE}></b><br>
+    <textarea cols=56 rows=7 name=message wrap="soft"  style="background-color: #F7FAFD; color:#000000;"><{$form_message}></textarea>
+  </td>
+</tr>
+<tr>
+  <td nowrap><b><{$smarty.const._MD_YYBBS_URL}></b></td>
+  <td><input type=text size=55 name=url value="<{$form_url}>"  style="background-color: #F7FAFD; color:#000000;"></td>
+</tr>
+<tr><td nowrap><b><{$smarty.const._MD_YYBBS_IMAGE}></b></td>
+		<td><select name=icon  style="background-color: #F7FAFD; color:#000000;">
+		<{foreach key=k item=i from=$form_icon}>
+			<{if $i==$form_now_icon}>
+				<option value="<{$i}>" selected><{$k}></option>
+			<{else}>
+				<option value="<{$i}>"><{$k}></option>
+			<{/if}>
+		<{/foreach}>
+</select> &nbsp;
+[<a href="javascript:openWithSelfMain('./imageup.php?bbs_id=1','window1',550,450);"><{$smarty.const._MD_YYBBS_IMAGE_REF}></a>]</td></tr>
+<tr><td nowrap><b><{$smarty.const._MD_YYBBS_PASSWD}></b></td><td><input type=password name=passwd size=8 maxlength=8 value="<{$form_passwd}>"   style="background-color: #F7FAFD; color:#000000;">
+<{$smarty.const._MD_YYBBS_PASSWD_EX}></td></tr>
+<tr><td nowrap><b><{$smarty.const._MD_YYBBS_COLOR}></b></td><td>
+<{foreach item=i from=$form_color}>
+	<{if $i==$form_now_col}>
+		<input type="radio" name="col" value="<{$i}>" checked>
+	<{else}>
+		<input type="radio" name="col" value="<{$i}>">
+	<{/if}>
+		<font color="<{$i}>"><{$smarty.const._MD_YYBBS_COLORCHIP}></font>
+<{/foreach}>
+</td></tr></table>
+</form>
